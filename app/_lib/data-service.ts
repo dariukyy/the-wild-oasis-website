@@ -1,9 +1,10 @@
 import { eachDayOfInterval } from 'date-fns';
+import { booking } from '../_types/types';
 
 /////////////
 // GET
 
-export async function getCabin(id) {
+export async function getCabin(id:string) {
   const { data, error } = await supabase
     .from('cabins')
     .select('*')
@@ -49,7 +50,7 @@ export const getCabins = async function () {
 };
 
 // Guests are uniquely identified by their email address
-export async function getGuest(email) {
+export async function getGuest(email:string) {
   const { data, error } = await supabase
     .from('guests')
     .select('*')
@@ -60,7 +61,7 @@ export async function getGuest(email) {
   return data;
 }
 
-export async function getBooking(id) {
+export async function getBooking(id:string) {
   const { data, error, count } = await supabase
     .from('bookings')
     .select('*')
@@ -93,7 +94,7 @@ export async function getBookings(guestId) {
   return data;
 }
 
-export async function getBookedDatesByCabinId(cabinId) {
+export async function getBookedDatesByCabinId(cabinId:number) {
   let today = new Date();
   today.setUTCHours(0, 0, 0, 0);
   today = today.toISOString();
@@ -112,7 +113,7 @@ export async function getBookedDatesByCabinId(cabinId) {
 
   // Converting to actual dates to be displayed in the date picker
   const bookedDates = data
-    .map((booking) => {
+    .map((booking:booking) => {
       return eachDayOfInterval({
         start: new Date(booking.startDate),
         end: new Date(booking.endDate),

@@ -2,6 +2,10 @@ import Link from "next/link";
 import ReservationCard from "@/app/_components/ReservationCard";
 import { booking } from "@/app/_types/types";
 
+export const metadata = {
+  title: "Reservations",
+};
+
 export default function Page() {
   // CHANGE
   const bookings: booking[] = [];
