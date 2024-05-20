@@ -37,3 +37,7 @@ export type guest = {
   nationality: string;
   countryFlag: string;
 };
+
+export type searchParamsProps = {
+  searchParams: { capacity: "small" | "medium" | "large" | "all" };
+};
