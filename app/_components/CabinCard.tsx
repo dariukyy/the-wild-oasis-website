@@ -1,17 +1,31 @@
 import { UsersIcon } from "@heroicons/react/24/solid";
-import { cabin } from "../_types/types";
+import Image from "next/image";
+import Link from "next/link";
 
-function CabinCard({ cabin }: { cabin: cabin }) {
+function CabinCard({
+  cabin,
+}: {
+  cabin: {
+    id: number;
+    name: string;
+    maxCapacity: number;
+    regularPrice: number;
+    discount: number;
+    image: string;
+  };
+}) {
   const { id, name, maxCapacity, regularPrice, discount, image } = cabin;
 
   return (
     <div className="flex border-primary-800 border">
-      <img
-        src={image}
-        alt={`Cabin ${name}`}
-        className="flex-1 border-r border-primary-800"
-      />
-
+      <div className="flex-1 relative">
+        <Image
+          src={image}
+          fill
+          alt={`Cabin ${name}`}
+          className="flex-1 border-r border-primary-800 object-cover"
+        />
+      </div>
       <div className="flex-grow">
         <div className="pt-5 pb-4 px-7 bg-primary-950">
           <h3 className="text-accent-500 font-semibold text-2xl mb-3">
@@ -43,12 +57,12 @@ function CabinCard({ cabin }: { cabin: cabin }) {
         </div>
 
         <div className="bg-primary-950 border-t border-t-primary-800 text-right">
-          <a
+          <Link
             href={`/cabins/${id}`}
             className="border-l border-primary-800 py-4 px-6 inline-block hover:bg-accent-600 transition-all hover:text-primary-900"
           >
             Details & reservation &rarr;
-          </a>
+          </Link>
         </div>
       </div>
     </div>
