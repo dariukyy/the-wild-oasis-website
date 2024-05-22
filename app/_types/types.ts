@@ -41,3 +41,7 @@ export type guest = {
 export type searchParamsProps = {
   searchParams: { capacity: "small" | "medium" | "large" | "all" };
 };
+export type rangeProps = {
+  from: Date | undefined;
+  to: Date | undefined;
+};
