@@ -6,7 +6,7 @@ import ReservationForm from "./ReservationForm";
 async function Reservation({ cabin }: { cabin: cabin }) {
   const [settings, bookedDates] = await Promise.all([
     getSettings(),
-    getBookedDatesByCabinId(cabin.id),
+    getBookedDatesByCabinId(String(cabin.id)),
   ]);
   return (
     <div className="grid grid-cols-1 border border-primary-800 min-h[400px] md:grid-cols-2 gap-5">
