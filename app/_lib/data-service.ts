@@ -71,7 +71,15 @@ export async function getGuest(email: string) {
     .single();
 
   // No error here! We handle the possibility of no guest in the sign in callback
-  return data;
+  return data as {
+    id: number;
+    created_at: string;
+    fullName: string;
+    email: string;
+    nationalID: string;
+    nationality: string;
+    countryFlag: string;
+  };
 }
 
 export async function getBooking(id: number) {
@@ -162,7 +170,10 @@ export async function getCountries() {
 /////////////
 // CREATE
 
-export async function createGuest(newGuest: guest) {
+export async function createGuest(newGuest: {
+  email: string;
+  fullName: string;
+}) {
   const { data, error } = await supabase.from("guests").insert([newGuest]);
 
   if (error) {
