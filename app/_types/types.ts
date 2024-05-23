@@ -16,16 +16,13 @@ export type booking = {
   endDate: string;
   numNights: number;
   numGuests: number;
-  cabinPrice: number;
-  extrasPrice: number;
   totalPrice: number;
-  status: string;
-  hasBreakfast: boolean;
-  isPaid: boolean;
-  observation?: string;
-  cabinId: number;
   guestId: number;
-  cabins: cabin;
+  cabinId: number;
+  cabins: {
+    name: string;
+    image: string;
+  };
 };
 
 export type guest = {
