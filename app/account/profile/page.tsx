@@ -1,11 +1,13 @@
 import SelectCountry from "@/app/_components/SelectCountry";
 import UpdateProfileForm from "@/app/_components/UpdateProfileForm";
+import { auth } from "@/app/_lib/auth";
 
 export const metadata = {
   title: "Update profile",
 };
 
-export default function Page() {
+export default async function Page() {
+  const session = await auth();
   const nationality = "portugal";
   // const countryFlag = "pt.jpg";
   // CHANGE
@@ -20,7 +22,7 @@ export default function Page() {
         Providing the following information will make your check-in process
         faster and smoother. See you soon!
       </p>
-      <UpdateProfileForm>
+      <UpdateProfileForm session={session}>
         <SelectCountry
           name="nationality"
           id="nationality"

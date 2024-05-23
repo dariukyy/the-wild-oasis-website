@@ -1,12 +1,19 @@
 "use client";
 
+import { Session } from "next-auth";
 import Image from "next/image";
 import { useState } from "react";
 
 const countryFlag = "pt.jpg";
 const nationality = "portugal";
 
-function UpdateProfileForm({ children }: { children: React.ReactNode }) {
+function UpdateProfileForm({
+  children,
+  session,
+}: {
+  children: React.ReactNode;
+  session: Session | null;
+}) {
   return (
     <div>
       <form className="bg-primary-900 py-8 px-12 text-lg flex gap-6 flex-col">
@@ -15,6 +22,7 @@ function UpdateProfileForm({ children }: { children: React.ReactNode }) {
           <input
             disabled
             className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm disabled:cursor-not-allowed disabled:bg-gray-600 disabled:text-gray-400"
+            value={session?.user?.name as string | undefined}
           />
         </div>
 
@@ -23,6 +31,7 @@ function UpdateProfileForm({ children }: { children: React.ReactNode }) {
           <input
             disabled
             className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm disabled:cursor-not-allowed disabled:bg-gray-600 disabled:text-gray-400"
+            value={session?.user?.email as string | undefined}
           />
         </div>
 
