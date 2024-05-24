@@ -18,6 +18,7 @@ export type booking = {
   numGuests: number;
   totalPrice: number;
   guestId: number;
+  observations: string;
   cabinId: number;
   cabins: {
     name: string;

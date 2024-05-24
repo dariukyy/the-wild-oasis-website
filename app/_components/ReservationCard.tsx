@@ -22,8 +22,9 @@ function ReservationCard({ booking }: { booking: booking }) {
     created_at,
   } = booking;
 
-  console.log(booking);
   const pastDate = isPast(new Date(startDate));
+
+  console.log(id);
 
   return (
     <div className="flex border border-primary-800">

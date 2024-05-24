@@ -1,12 +1,12 @@
 import { eachDayOfInterval } from "date-fns";
-import { booking, cabin, guest } from "../_types/types";
-import { supabase } from "./supabase";
 import { notFound } from "next/navigation";
+import { booking, cabin } from "../_types/types";
+import { supabase } from "./supabase";
 
 /////////////
 // GET
 
-export async function getCabin(id: string) {
+export async function getCabin(id: number) {
   const { data, error } = await supabase
     .from("cabins")
     .select("*")
@@ -82,7 +82,7 @@ export async function getGuest(email: string) {
   };
 }
 
-export async function getBooking(id: number) {
+export async function getBooking(id: string) {
   const { data, error, count } = await supabase
     .from("bookings")
     .select("*")
