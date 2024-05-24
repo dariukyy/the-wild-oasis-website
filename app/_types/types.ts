@@ -18,7 +18,7 @@ export type booking = {
   numGuests: number;
   totalPrice: number;
   guestId: number;
-  observations: string;
+  observations?: string;
   cabinId: number;
   cabins: {
     name: string;
@@ -40,6 +40,6 @@ export type searchParamsProps = {
   searchParams: { capacity: "small" | "medium" | "large" | "all" };
 };
 export type rangeProps = {
-  from: Date | undefined;
-  to: Date | undefined;
+  from: Date | null;
+  to: Date | null;
 };

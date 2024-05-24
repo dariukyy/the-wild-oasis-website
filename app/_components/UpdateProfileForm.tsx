@@ -4,9 +4,6 @@ import { updateGuest } from "../_lib/actions";
 import { guest } from "../_types/types";
 import SubmitButton from "./SubmitButton";
 
-const countryFlag = "pt.jpg";
-const nationality = "portugal";
-
 function UpdateProfileForm({
   children,
   guest,
@@ -65,7 +62,7 @@ function UpdateProfileForm({
         </div>
 
         <div className="flex justify-end items-center gap-6">
-          <SubmitButton name="profile" />
+          <SubmitButton pendingText="Updating..." name="Update profile" />
         </div>
       </form>
     </div>

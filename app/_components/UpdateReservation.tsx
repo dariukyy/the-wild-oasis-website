@@ -50,7 +50,7 @@ function UpdateReservation({
       </div>
 
       <div className="flex justify-end items-center gap-6">
-        <SubmitButton name="reservation" />
+        <SubmitButton name="Edit reservation" pendingText="Updating..." />
       </div>
     </form>
   );
