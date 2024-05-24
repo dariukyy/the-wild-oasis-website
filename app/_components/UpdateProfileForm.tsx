@@ -1,9 +1,8 @@
 "use client";
 
-import { useFormStatus } from "react-dom";
 import { updateGuest } from "../_lib/actions";
 import { guest } from "../_types/types";
-import SpinnerMini from "./SpinnerMini";
+import SubmitButton from "./SubmitButton";
 
 const countryFlag = "pt.jpg";
 const nationality = "portugal";
@@ -66,23 +65,10 @@ function UpdateProfileForm({
         </div>
 
         <div className="flex justify-end items-center gap-6">
-          <Button />
+          <SubmitButton name="profile" />
         </div>
       </form>
     </div>
-  );
-}
-
-function Button() {
-  const { pending } = useFormStatus();
-
-  return (
-    <button
-      disabled={pending}
-      className="bg-accent-500 px-8 py-4 text-primary-800 font-semibold hover:bg-accent-600 transition-all disabled:cursor-not-allowed disabled:bg-gray-500 disabled:text-gray-300 flex justify-center items-center"
-    >
-      {pending ? "Updating..." : "Update profile"}
-    </button>
   );
 }
 
