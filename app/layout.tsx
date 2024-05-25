@@ -1,5 +1,6 @@
 import "@/app/_styles/globals.css";
 import Header from "./_components/Header";
+import { Analytics } from "@vercel/analytics/react";
 
 import { Josefin_Sans } from "next/font/google";
 import ReservationProvider from "./_context/ReservationContext";
@@ -31,7 +32,10 @@ export default function RootLayout({
         <Header />
         <div className="flex-1 px-8 py-12 grid">
           <main className="max-w-7xl w-full mx-auto">
-            <ReservationProvider>{children}</ReservationProvider>
+            <ReservationProvider>
+              {children}
+              <Analytics />
+            </ReservationProvider>
           </main>
         </div>
       </body>
