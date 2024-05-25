@@ -18,7 +18,7 @@ type params = {
 
 export default async function page({ params }: params) {
   const booking: booking = await getBooking(params.id);
-  const { maxCapacity } = await getCabin(booking.cabinId);
+  const { maxCapacity } = await getCabin(String(booking.cabinId));
 
   return (
     <div>
