@@ -21,8 +21,11 @@ export default function ReservationProvider({
 }: {
   children: ReactNode;
 }) {
-  const [range, setRange] = useState<rangeProps>(initialState);
-  const resetRange = () => setRange(initialState);
+  const [range, setRange] = useState<rangeProps>({
+    from: null,
+    to: null,
+  });
+  const resetRange = () => setRange({ from: null, to: null });
 
   return (
     <ReservationContext.Provider value={{ range, setRange, resetRange }}>
